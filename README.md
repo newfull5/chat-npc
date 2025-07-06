@@ -1,5 +1,8 @@
 ## Overview
 
+# ChatNPC: LLM-based Context-Aware Flexible NPC System
+An intelligent dialogue system that creates immersive gaming experiences through context-aware NPC interactions.
+
 Traditional NPCs rely on fixed, pre-scripted responses that break immersion. This system generates **dynamic, context-aware dialogue** that adapts to:
 - Player's emotional state
 - Game context changes (location, quest, HP/MP)
@@ -77,3 +80,10 @@ result = await pipeline.arun(
 )
 
 ```
+
+
+## References
+
+- **ChatNPC: Towards Immersive Video Game Experience through Naturalistic and Emotive Dialogue Agent** (ACL 2024 submit)
+- **The Turing Quest: Can Transformers Make Good NPCs?** (ACL 2023)
+- **Hello Again! LLM-powered Personalized Agent for Long-term Dialogue** (NAACL 2025)
