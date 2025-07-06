@@ -24,6 +24,8 @@ Traditional NPCs rely on fixed, pre-scripted responses that break immersion. Thi
    - Emotion and context-aware dialogue synthesis
 
 
+<img width="502" height="800" alt="Image" src="https://github.com/user-attachments/assets/8acb2953-9bf1-4a9d-95ed-7a99fefbf211" />
+
 ## Environment Setup
 
 ### venv setup
