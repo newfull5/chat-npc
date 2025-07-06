@@ -1,65 +1,79 @@
+## Overview
 
-## 🚀 빠른 시작
+Traditional NPCs rely on fixed, pre-scripted responses that break immersion. This system generates **dynamic, context-aware dialogue** that adapts to:
+- Player's emotional state
+- Game context changes (location, quest, HP/MP)
+- Historical interactions
 
-### 1. 환경 설정
+### Core Components
 
+1. **Sentinel Mechanism**
+   - **Context Sentinel**: Detects significant game state changes using embedding comparison
+   - **Emotion Sentinel**: Classifies player emotions using GoEmotions-based classifier
+
+2. **Memory Manager**
+   - **In-context**: Recent conversation history
+   - **Out-of-context**: Long-term memory storage with semantic retrieval
+   - RAG-based memory activation for relevant past interactions
+
+3. **Chat Planning Agent**
+   - Internal "pre-thinking" process before response generation
+   - Emotion and context-aware dialogue synthesis
+
+
+## Environment Setup
+
+### venv setup
 ```bash
-# Poetry 설치 (macOS)
-brew install poetry
+# Install Poetry (if not installed)
+curl -sSL https://install.python-poetry.org | python3 -
 
-# 의존성 설치
+# Install dependencies
 poetry install
 
-# 가상환경 활성화
+# Activate virtual environment
 poetry shell
 ```
 
-### 2. 실행
-
-```bash
-python main.py
+### env variables
+create .env file in project root
+```shell
+# .env
+OPENAI_API_KEY=your_openai_api_key_here
 ```
 
-## 📝 사용 예제
+### Mongo DB Setup
+
+```shell
+# Start MongoDB container
+docker-compose up -d
+
+# Verify MongoDB is running
+docker ps
+```
+
+
+
+### Usage Example
 
 ```python
-import asyncio
 from pipeline import AgentState, Pipeline
 
-async def main():
-    pipeline = Pipeline()
-    
-    # NPC와의 대화 실행
-    result = await pipeline.arun(
-        AgentState(
-            messages=[{"role": "user", "content": "안녕하세요!"}],
-            user_text="안녕하세요!",
-            npc_name="엘레나",
-            npc_description="친절한 마을 가이드",
-            player_id="player_123",
-            location="시작 마을",
-            quest="튜토리얼 완료",
-            hp=100,
-            mp=50,
-            status="건강함"
-        )
+pipeline = Pipeline()
+
+result = await pipeline.arun(
+    AgentState(
+        messages=[{"role": "user", "content": "This boss is impossible!"}],
+        user_text="This boss is impossible!",
+        npc_name="Battle Master",
+        npc_description="Experienced warrior who provides combat guidance",
+        player_id="player_123",
+        location="dungeon",
+        quest="defeat_boss",
+        hp=15,
+        mp=5,
+        status="injured"
     )
-    
-    print(f"NPC 응답: {result['answer']}")
+)
 
-if __name__ == "__main__":
-    asyncio.run(main())
 ```
-
-
-### SentinelNode
-- 컨텍스트 변화 감지 (위치, 퀘스트, 상태 변경)
-- 플레이어 감정 상태 분석
-
-### MemoryNode
-- 대화 이력 저장 및 검색
-- 플레이어별 개인화된 메모리 관리
-
-### ChatNode
-- 컨텍스트 기반 자연스러운 대화 생성
-- NPC 특성과 상황에 맞는 응답 생성
