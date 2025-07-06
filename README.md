@@ -8,6 +8,8 @@ Traditional NPCs rely on fixed, pre-scripted responses that break immersion. Thi
 - Game context changes (location, quest, HP/MP)
 - Historical interactions
 
+<img width="502" height="800" alt="Image" src="https://github.com/user-attachments/assets/8acb2953-9bf1-4a9d-95ed-7a99fefbf211" />
+
 ### Core Components
 
 1. **Sentinel Mechanism**
@@ -24,7 +26,59 @@ Traditional NPCs rely on fixed, pre-scripted responses that break immersion. Thi
    - Emotion and context-aware dialogue synthesis
 
 
-<img width="502" height="800" alt="Image" src="https://github.com/user-attachments/assets/8acb2953-9bf1-4a9d-95ed-7a99fefbf211" />
+
+## Example Interactions
+### Case 1: Beginner Player
+**Input:**
+``` python
+AgentState(
+    messages=[{"role": "user", "content": "This is amazing! I just started playing!"}],
+    user_text="This is amazing! I just started playing!",
+    npc_name="Elena",
+    npc_description="A cheerful village guide who loves helping newcomers learn the game",
+    player_id="player_0d084ad",
+    location="starting_village",
+    quest="tutorial_basics",
+    hp=100,
+    mp=20,
+    status="excited"
+)
+```
+**Output:**
+``` 
+"""
+That's fantastic to hear! 
+I'm glad you're enjoying it so far. 
+If you need any tips or guidance as you explore, just let me know—I'm here to help you make the most of your adventure!
+"""
+```
+
+### Case 2: Struggling Player
+**Input:**
+``` python
+AgentState(
+    messages=[{"role": "user", "content": "This boss is impossible! I keep dying!"}],
+    user_text="This boss is impossible! I keep dying!",
+    npc_name="Gareth",
+    npc_description="A battle-scarred veteran warrior who has conquered many dungeons",
+    player_id="player_0d084ad",
+    location="shadow_dungeon",
+    quest="defeat_dark_lord",
+    hp=15,
+    mp=5,
+    status="injured"
+)
+```
+**Output:**
+``` 
+"""
+I know this boss can be tough, but don't get discouraged! 
+Sometimes it takes a few tries to learn the patterns. 
+Take a deep breath, maybe try adjusting your strategy, and remember—every attempt gets you closer to victory.
+You've got this!
+"""
+```
+
 
 ## Environment Setup
 
