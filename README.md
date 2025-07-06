@@ -84,6 +84,6 @@ result = await pipeline.arun(
 
 ## References
 
-- **ChatNPC: Towards Immersive Video Game Experience through Naturalistic and Emotive Dialogue Agent** (ACL 2024 submit)
-- **The Turing Quest: Can Transformers Make Good NPCs?** (ACL 2023)
-- **Hello Again! LLM-powered Personalized Agent for Long-term Dialogue** (NAACL 2025)
+- ChatNPC: Towards Immersive Video Game Experience through Naturalistic and Emotive Dialogue Agent (ACL 2024 submit)
+- The Turing Quest: Can Transformers Make Good NPCs? (ACL 2023)
+- Hello Again! LLM-powered Personalized Agent for Long-term Dialogue (NAACL 2025)
